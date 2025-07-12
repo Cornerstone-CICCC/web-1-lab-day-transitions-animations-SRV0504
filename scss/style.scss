@@ -11,7 +11,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   height: 100vh;
-  
+
   > div {
     position: relative;
     display: flex;
@@ -21,9 +21,104 @@ body {
   }
 
   button {
-    padding: .75rem 1rem;
+    padding: 0.75rem 1rem;
     border: none;
     cursor: pointer;
     font-size: 20px;
+  }
+}
+
+#btn1 {
+  background: black;
+  color: white;
+  border: 2px solid black;
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s ease;
+  padding: 0.75rem 1rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: black;
+    z-index: -1;
+    transition: transform 0.2s;
+  }
+
+  &:hover {
+    background: white;
+    color: black;
+    transform: translateY(-4px);
+
+    &::after {
+      transform: translate(6px, 6px);
+    }
+  }
+}
+
+
+
+#btn3 {
+  background: green;
+  color: white;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0c7c0c;
+  }
+}
+
+#shape1 {
+  width: 100px;
+  height: 100px;
+  background: lightgray;
+  transition: clip-path 0.4s ease;
+
+  &:hover {
+    clip-path: circle(50%);
+  }
+}
+
+#shape2 {
+  width: 100px;
+  height: 100px;
+  background: orange;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  transition: transform 0.4s ease;
+
+  &:hover {
+    transform: rotate(360deg);
+  }
+}
+#figure1 {
+  position: relative;
+
+  img {
+    filter: grayscale(1);
+    transition: filter 0.4s ease;
+  }
+
+  figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: pink;
+    color: black;
+    text-align: center;
+    padding: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  &:hover {
+    img {
+      filter: grayscale(0);
+    }
+
+    figcaption {
+      opacity: 1;
+    }
   }
 }
